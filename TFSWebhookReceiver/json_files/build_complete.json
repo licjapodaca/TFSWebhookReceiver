@@ -1,0 +1,128 @@
+{
+	"subscriptionId": "ef36467e-1ce9-4490-bd58-4ed0fc070fba",
+	"notificationId": 1,
+	"id": "a3f301c5-0d87-4370-bb4f-436c6ee79c89",
+	"eventType": "build.complete",
+	"publisherId": "tfs",
+	"message": {
+		"text": "Build 20161113.1 succeeded",
+		"html": "Build <a href=\"http://svr-tfs:8080/tfs/web/build.aspx?pcguid=ed1f48e0-9040-4057-9173-11dfd1e0463f&amp;builduri=vstfs%3a%2f%2f%2fBuild%2fBuild%2f418\">20161113.1</a> succeeded",
+		"markdown": "Build [20161113.1](http://svr-tfs:8080/tfs/web/build.aspx?pcguid=ed1f48e0-9040-4057-9173-11dfd1e0463f&builduri=vstfs%3a%2f%2f%2fBuild%2fBuild%2f418) succeeded"
+	},
+	"detailedMessage": {
+		"text": "Build 20161113.1 succeeded",
+		"html": "Build <a href=\"http://svr-tfs:8080/tfs/web/build.aspx?pcguid=ed1f48e0-9040-4057-9173-11dfd1e0463f&amp;builduri=vstfs%3a%2f%2f%2fBuild%2fBuild%2f418\">20161113.1</a> succeeded",
+		"markdown": "Build [20161113.1](http://svr-tfs:8080/tfs/web/build.aspx?pcguid=ed1f48e0-9040-4057-9173-11dfd1e0463f&builduri=vstfs%3a%2f%2f%2fBuild%2fBuild%2f418) succeeded"
+	},
+	"resource": {
+		"_links": {
+			"self": {
+				"href": "http://svr-tfs:8080/tfs/PRODUCTOS/0215c0ef-c81f-403a-8706-10c0906f7063/_apis/build/Builds/418"
+			},
+			"web": {
+				"href": "http://svr-tfs:8080/tfs/_permalink/_build/index?collectionId=ed1f48e0-9040-4057-9173-11dfd1e0463f&projectId=0215c0ef-c81f-403a-8706-10c0906f7063&buildId=418"
+			},
+			"timeline": {
+				"href": "http://svr-tfs:8080/tfs/PRODUCTOS/0215c0ef-c81f-403a-8706-10c0906f7063/_apis/build/builds/418/Timeline"
+			}
+		},
+		"properties": {},
+		"tags": [],
+		"validationResults": [],
+		"id": 418,
+		"buildNumber": "20161113.1",
+		"status": "completed",
+		"result": "succeeded",
+		"queueTime": "2016-11-14T02:25:38.3040238Z",
+		"startTime": "2016-11-14T02:25:47.0932377Z",
+		"finishTime": "2016-11-14T02:28:56.2946987Z",
+		"url": "http://svr-tfs:8080/tfs/PRODUCTOS/0215c0ef-c81f-403a-8706-10c0906f7063/_apis/build/Builds/418",
+		"definition": {
+			"type": "build",
+			"revision": 56,
+			"id": 4,
+			"name": "IntegracionContinua-JusticiaOne",
+			"url": "http://svr-tfs:8080/tfs/PRODUCTOS/0215c0ef-c81f-403a-8706-10c0906f7063/_apis/build/Definitions/4",
+			"project": {
+				"id": "0215c0ef-c81f-403a-8706-10c0906f7063",
+				"name": "JUSTICIA-ONE",
+				"description": "Proyecto para el control de expedientes reutilizando componentes de BTS-ONE.",
+				"url": "http://svr-tfs:8080/tfs/PRODUCTOS/_apis/projects/0215c0ef-c81f-403a-8706-10c0906f7063",
+				"state": "wellFormed",
+				"revision": 14
+			}
+		},
+		"buildNumberRevision": 1,
+		"project": {
+			"id": "0215c0ef-c81f-403a-8706-10c0906f7063",
+			"name": "JUSTICIA-ONE",
+			"description": "Proyecto para el control de expedientes reutilizando componentes de BTS-ONE.",
+			"url": "http://svr-tfs:8080/tfs/PRODUCTOS/_apis/projects/0215c0ef-c81f-403a-8706-10c0906f7063",
+			"state": "wellFormed",
+			"revision": 14
+		},
+		"uri": "vstfs:///Build/Build/418",
+		"sourceBranch": "refs/heads/develop",
+		"sourceVersion": "5193a9457f96365310160a4a077acd5da14891ac",
+		"queue": {
+			"_links": {},
+			"pool": {
+				"id": 2,
+				"name": "BtsOnePool"
+			},
+			"id": 2,
+			"name": "BtsOnePool"
+		},
+		"priority": "normal",
+		"reason": "manual",
+		"requestedFor": {
+			"id": "f907dc15-7d46-4774-b299-f8ac555e86ef",
+			"displayName": "Jorge Mario Apodaca Mendoza",
+			"uniqueName": "BTS\\japodaca",
+			"url": "http://svr-tfs:8080/tfs/PRODUCTOS/_apis/Identities/f907dc15-7d46-4774-b299-f8ac555e86ef",
+			"imageUrl": "http://svr-tfs:8080/tfs/PRODUCTOS/_api/_common/identityImage?id=f907dc15-7d46-4774-b299-f8ac555e86ef"
+		},
+		"requestedBy": {
+			"id": "f907dc15-7d46-4774-b299-f8ac555e86ef",
+			"displayName": "Jorge Mario Apodaca Mendoza",
+			"uniqueName": "BTS\\japodaca",
+			"url": "http://svr-tfs:8080/tfs/PRODUCTOS/_apis/Identities/f907dc15-7d46-4774-b299-f8ac555e86ef",
+			"imageUrl": "http://svr-tfs:8080/tfs/PRODUCTOS/_api/_common/identityImage?id=f907dc15-7d46-4774-b299-f8ac555e86ef"
+		},
+		"lastChangedDate": "2016-11-14T02:28:56.363Z",
+		"lastChangedBy": {
+			"id": "94f6e7d7-b1ca-43d5-889c-d43470577dd5",
+			"displayName": "[PRODUCTOS]\\Project Collection Service Accounts",
+			"uniqueName": "vstfs:///Framework/IdentityDomain/ed1f48e0-9040-4057-9173-11dfd1e0463f\\Project Collection Service Accounts",
+			"url": "http://svr-tfs:8080/tfs/PRODUCTOS/_apis/Identities/94f6e7d7-b1ca-43d5-889c-d43470577dd5",
+			"imageUrl": "http://svr-tfs:8080/tfs/PRODUCTOS/_api/_common/identityImage?id=94f6e7d7-b1ca-43d5-889c-d43470577dd5",
+			"isContainer": true
+		},
+		"parameters": "{\"system.debug\":\"true\",\"BuildConfiguration\":\"debug, release\",\"BuildPlatform\":\"any cpu\",\"FrontendProject\":\"BTS.JusticiaOne.Web.Frontend.Portal\",\"BackendProject\":\"BTS.JusticiaOne.Web.API\",\"SenchaCommandPath\":\"C:\\\\Users\\\\TFS_BUILD\\\\bin\\\\Sencha\\\\Cmd\",\"SenchaCommandVersion\":\"6.2.1.5\",\"SenchaExtPath\":\"C:\\\\Sencha\\\\extjs\\\\ext-6.2.1.6.2.1.53\"}",
+		"orchestrationPlan": {
+			"planId": "bae0236d-cbe3-410f-af55-b838641eb1c2"
+		},
+		"logs": {
+			"id": 0,
+			"type": "Container",
+			"url": "http://svr-tfs:8080/tfs/PRODUCTOS/0215c0ef-c81f-403a-8706-10c0906f7063/_apis/build/builds/418/logs"
+		},
+		"repository": {
+			"id": "299dd7c1-667a-407d-bc40-3e538af8f9bd",
+			"type": "TfsGit",
+			"clean": null,
+			"checkoutSubmodules": false
+		},
+		"keepForever": false
+	},
+	"resourceVersion": "2.0",
+	"resourceContainers": {
+		"collection": {
+			"id": "ed1f48e0-9040-4057-9173-11dfd1e0463f"
+		},
+		"project": {
+			"id": "0215c0ef-c81f-403a-8706-10c0906f7063"
+		}
+	},
+	"createdDate": "2016-11-14T02:29:00.4005765Z"
+}
