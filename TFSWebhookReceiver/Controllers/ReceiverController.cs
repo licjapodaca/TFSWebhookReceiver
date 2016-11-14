@@ -14,7 +14,7 @@ namespace TFSWebhookReceiver.Controllers
 	{
 		static HttpClient client = new HttpClient();
 
-		[Route()]
+		[Route("api/Receiver/BuildCompleteEvent")]
 		[HttpPost]
 		public async Task<IHttpActionResult> BuildCompleteEvent(BuildCompleteEvent parameters)
 		{
@@ -38,7 +38,8 @@ namespace TFSWebhookReceiver.Controllers
 					{
 						new Fact() { name = "Build", value = parameters.resource.buildNumber },
 						new Fact() { name = "URL", value = "[Prueba](http://svr-tfs:8080/tfs)" }
-					}
+					},
+					markdown = true
 				}
 			};
 
