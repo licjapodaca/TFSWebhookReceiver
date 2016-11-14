@@ -14,6 +14,7 @@ namespace TFSWebhookReceiver.Controllers
 	{
 		static HttpClient client = new HttpClient();
 
+		[Route()]
 		[HttpPost]
 		public async Task<IHttpActionResult> BuildCompleteEvent(BuildCompleteEvent parameters)
 		{
