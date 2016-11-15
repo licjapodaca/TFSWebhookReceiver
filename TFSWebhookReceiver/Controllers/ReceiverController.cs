@@ -22,22 +22,33 @@ namespace TFSWebhookReceiver.Controllers
 			string urlWebhook = WebConfigurationManager.AppSettings["build.complete.webhook"].ToString();
 
 
-			card.text = "Hello World!";
-			card.summary = "Este es el summary";
-			card.title = "Y este es el titulo";
+			//card.title = "BUILD COMPLETED";
+			card.text = "# Build Process Completed";
+			//card.summary = parameters.message.markdown;
 			card.themeColor = "#737373";
+			
 			card.sections = new List<Section>()
 			{
 				new Section()
 				{
-					activityTitle = "Titulo Seccion",
-					activitySubtitle = "Subtitulo Seccion",
-					activityText = "Texto de la Eccion",
+					activityTitle = "Build executed by TFS Continues Integration",
+					activitySubtitle = "Details notification",
+					activityText = String.Format("**Requested by:** {0}<br/>**Domain user:** {1}", parameters.resource.requestedBy.displayName, parameters.resource.requestedBy.uniqueName),
 					activityImage = parameters.resource.requestedBy.imageUrl,
+					markdown = true
+				},
+				new Section()
+				{
+					title = "**Information Details**",
 					facts = new List<Fact>()
 					{
-						new Fact() { name = "Build", value = parameters.resource.buildNumber },
-						new Fact() { name = "URL", value = "[Prueba](http://svr-tfs:8080/tfs)" }
+						new Fact() { name = "Build: ", value = String.Format("{0}", parameters.resource.buildNumber) },
+						new Fact() { name = "URL: ", value = String.Format("{0}", parameters.message.markdown) },
+						new Fact() { name = "Queue Time: ", value = String.Format("{0}", parameters.resource.queueTime.ToString("dd/MM/yyyy h:mm:ss tt")) },
+						new Fact() { name = "Start Time: ", value = String.Format("{0}", parameters.resource.startTime.ToString("dd/MM/yyyy h:mm:ss tt")) },
+						new Fact() { name = "Finish Time: ", value = String.Format("{0}", parameters.resource.finishTime.ToString("dd/MM/yyyy h:mm:ss tt")) },
+						new Fact() { name = "Duration: ", value = String.Format("{0:00}:{1:00}:{2:00}", (parameters.resource.finishTime.Subtract(parameters.resource.startTime)).Hours, (parameters.resource.finishTime.Subtract(parameters.resource.startTime)).Minutes, (parameters.resource.finishTime.Subtract(parameters.resource.startTime)).Seconds) },
+						new Fact() { name = "Result: ", value = parameters.resource.result == "failed" ? String.Format("<span style='color:red;'>**{0}**</span>", parameters.resource.result) : String.Format("{0}", parameters.resource.result) }
 					},
 					markdown = true
 				}
