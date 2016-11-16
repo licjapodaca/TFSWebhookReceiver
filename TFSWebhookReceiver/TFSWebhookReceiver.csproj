@@ -169,7 +169,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BuildCompleteEvent.cs" />
+    <Compile Include="Models\TfsEventClasses.cs" />
     <Compile Include="Models\ConnectorCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

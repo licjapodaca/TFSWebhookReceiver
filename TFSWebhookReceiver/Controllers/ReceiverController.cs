@@ -14,6 +14,10 @@ namespace TFSWebhookReceiver.Controllers
 	public class ReceiverController : ApiController
 	{
 		static HttpClient client = new HttpClient();
+		private string
+			urlWebhook = WebConfigurationManager.AppSettings["DevsTeam.webhook"].ToString(),
+			logoUrl = WebConfigurationManager.AppSettings["urlLogoEncoded"].ToString(),
+			title = "<span style='font-size:1.2em !important;color:#4C0569;'><b>{0}</b></span>";
 
 		[Route("api/Receiver/BuildCompleteEvent")]
 		[HttpPost]
@@ -38,17 +42,15 @@ namespace TFSWebhookReceiver.Controllers
 				}
 
 				var card = new ConnectorCard();
-				string urlWebhook = WebConfigurationManager.AppSettings["build.complete.webhook"].ToString(),
-					logoUrl = WebConfigurationManager.AppSettings["urlLogoEncoded"].ToString();
-
-				card.text = "# Build Process Completed";
+				
+				card.summary = "Build Process Completed";
 				card.themeColor = "#737373";
 
 				card.sections = new List<Section>();
 				card.sections.Add(
 					new Section()
 					{
-						activityTitle = "Build executed by TFS Continues Integration",
+						activityTitle = String.Format(title, "Build process completed by TFS Continues Integration"),
 						activitySubtitle = "Details notification",
 						activityText = String.Format("**Requested for:** {0}<br/>**Domain user:** {1}", String.IsNullOrEmpty(parameters.resource.requestedFor.displayName) ? "Test" : parameters.resource.requestedFor.displayName, String.IsNullOrEmpty(parameters.resource.requestedFor.uniqueName) ? "Test" : parameters.resource.requestedFor.uniqueName),
 						activityImage = HttpUtility.UrlDecode(logoUrl),
@@ -77,6 +79,44 @@ namespace TFSWebhookReceiver.Controllers
 				}
 
 				card.sections.Add(section);
+
+				HttpResponseMessage response = await client.PostAsJsonAsync(urlWebhook, card);
+				response.EnsureSuccessStatusCode();
+
+				return Ok(new { success = true });
+			}
+			catch (Exception ex)
+			{
+				return InternalServerError(ex);
+			}
+		}
+
+		[Route("api/Receiver/WorkitemUpdateEvent")]
+		[HttpPost]
+		public async Task<IHttpActionResult> WorkitemUpdateEvent(WorkitemUpdateEvent parameters)
+		{
+			try
+			{
+				if (!ModelState.IsValid)
+				{
+					return BadRequest(ModelState);
+				}
+
+				var card = new ConnectorCard();
+				
+				card.summary = "Workitem Updated";
+				card.themeColor = "#737373";
+
+				card.sections = new List<Section>();
+				card.sections.Add(
+					new Section()
+					{
+						activityTitle = String.Format(title, "Workitem Updated"),
+						activitySubtitle = "Details notification",
+						activityText = parameters.detailedMessage.markdown,
+						activityImage = HttpUtility.UrlDecode(logoUrl),
+						markdown = true
+					});
 
 				HttpResponseMessage response = await client.PostAsJsonAsync(urlWebhook, card);
 				response.EnsureSuccessStatusCode();
