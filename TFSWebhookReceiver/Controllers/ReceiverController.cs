@@ -44,7 +44,7 @@ namespace TFSWebhookReceiver.Controllers
 				var card = new ConnectorCard();
 				
 				card.summary = "Build Process Completed";
-				card.themeColor = "#737373";
+				card.themeColor = "737373";
 
 				card.sections = new List<Section>();
 				card.sections.Add(
@@ -105,7 +105,7 @@ namespace TFSWebhookReceiver.Controllers
 				var card = new ConnectorCard();
 				
 				card.summary = "Workitem Updated";
-				card.themeColor = "#737373";
+				card.themeColor = "737373";
 
 				card.sections = new List<Section>();
 				card.sections.Add(
