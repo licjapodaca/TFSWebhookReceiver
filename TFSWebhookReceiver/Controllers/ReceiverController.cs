@@ -51,7 +51,7 @@ namespace TFSWebhookReceiver.Controllers
 					new Section()
 					{
 						activityTitle = String.Format(title, "Build process completed by TFS Continues Integration"),
-						activitySubtitle = "Details notification",
+						activitySubtitle = "Details notification to @TFS - Notificaciones",
 						activityText = String.Format("**Requested for:** {0}<br/>**Domain user:** {1}", String.IsNullOrEmpty(parameters.resource.requestedFor.displayName) ? "Test" : parameters.resource.requestedFor.displayName, String.IsNullOrEmpty(parameters.resource.requestedFor.uniqueName) ? "Test" : parameters.resource.requestedFor.uniqueName),
 						activityImage = HttpUtility.UrlDecode(logoUrl),
 						markdown = true
